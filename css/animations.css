@@ -1,0 +1,194 @@
+/* ==========================================================================
+   ANIMATIONS.CSS - Manoj's High-Tech Cyber Portfolio Keyframes & Micro-interactions
+   ========================================================================== */
+
+/* ----------------- Ambient Glow & Floating Orbs ----------------- */
+@keyframes floatOrb1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(40px, -60px, 0) scale(1.1);
+  }
+  66% {
+    transform: translate3d(-30px, 40px, 0) scale(0.95);
+  }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(-50px, 50px, 0) scale(1.15);
+  }
+  66% {
+    transform: translate3d(35px, -45px, 0) scale(0.9);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ----------------- Rotating Gradient Borders ----------------- */
+@keyframes spinBorder {
+  0% {
+    --border-angle: 0deg;
+  }
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ----------------- Radar Pulse for Status Badge ----------------- */
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* ----------------- Shimmer Light Sweep ----------------- */
+@keyframes shimmerEffect {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(250%) rotate(25deg);
+  }
+}
+
+/* ----------------- Glowing Neon Pulse ----------------- */
+@keyframes neonPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px var(--accent-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px var(--accent-glow-strong));
+  }
+}
+
+@keyframes badgeGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--accent-glow-soft);
+  }
+  50% {
+    box-shadow: 0 0 22px var(--accent-glow);
+  }
+}
+
+/* ----------------- Marquee Infinite Scroll ----------------- */
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ----------------- Code Terminal Scanline ----------------- */
+@keyframes scanline {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+/* ----------------- Typewriter Caret Blink ----------------- */
+@keyframes caretBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ----------------- Timeline Pulse ----------------- */
+@keyframes timelineGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2), 0 0 15px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(59, 130, 246, 0.4), 0 0 25px var(--accent-glow);
+  }
+}
+
+/* ----------------- Achievement Ribbon Sparkle ----------------- */
+@keyframes trophyShine {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4));
+  }
+  50% {
+    transform: scale(1.08) rotate(4deg);
+    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.9));
+  }
+}
+
+/* ----------------- Scroll Reveal Classes ----------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ----------------- Magnetic / 3D Tilt Card Base ----------------- */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 20px 40px -15px var(--card-hover-shadow);
+  border-color: var(--accent-border);
+}

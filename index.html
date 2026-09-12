@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bommu Manoj Madhu Kumar | Full-Stack Software Engineer & DSA Specialist</title>
+  <meta name="description" content="Portfolio of Bommu Manoj Madhu Kumar - Computer Science Engineer, Full-Stack Web Developer, DSA in C++ & MERN Specialist. View projects, interactive sandboxes, and achievements.">
+  <meta name="keywords" content="Bommu Manoj Madhu Kumar, Portfolio, Software Engineer, Full Stack Developer, C++, DSA, MERN, Lovely Professional University">
+  <meta name="author" content="Bommu Manoj Madhu Kumar">
+  <meta property="og:title" content="Bommu Manoj Madhu Kumar | Software Engineer Portfolio">
+  <meta property="og:description" content="Explore my full-stack projects, live interactive chatbots, DSA calculators, and engineering achievements.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans & Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Animated Lighting & Grid -->
+  <div class="bg-ambient-layer" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Interactive Custom Cursor -->
+  <div class="custom-cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-outline" aria-hidden="true"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="brand-logo" id="brand-logo" aria-label="Manoj Portfolio Home">
+        <div class="logo-badge">M</div>
+        <span>Manoj<span class="gradient-text">.dev</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#certifications" class="nav-link">Certificates</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#" data-modal-open="modal-mobile-connect" class="nav-link" style="color:var(--accent-primary);">📱 Mobile Link & QR</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Accent Switcher -->
+        <div class="theme-picker" title="Switch Accent Theme">
+          <div class="theme-dot active" data-pick="cyan" title="Cyber Cyan"></div>
+          <div class="theme-dot" data-pick="violet" title="Neon Violet"></div>
+          <div class="theme-dot" data-pick="emerald" title="Emerald Matrix"></div>
+          <div class="theme-dot" data-pick="amber" title="Solar Amber"></div>
+        </div>
+
+        <button class="btn-nav-cta" data-modal-open="modal-mobile-connect" id="nav-mobile-btn" style="cursor:pointer; display:inline-flex; align-items:center; gap:0.45rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+          <span>📱 Mobile Link</span>
+        </button>
+
+        <a href="#contact" class="btn-nav-cta" id="nav-hire-cta">Hire Me</a>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="status-badge reveal">
+            <span class="radar-dot"></span>
+            <span>Available for Software Engineering Roles & Internships</span>
+          </div>
+
+          <h1 class="hero-title reveal reveal-delay-1">
+            Hi, I'm <br>
+            <span class="gradient-text">Bommu Manoj</span> <br>
+            Madhu Kumar
+          </h1>
+
+          <div class="hero-typing-wrapper reveal reveal-delay-2">
+            <span>&gt; </span>
+            <span class="typing-text" id="typing-text">Full-Stack Software Engineer</span>
+            <span class="cursor-caret"></span>
+          </div>
+
+          <p class="hero-description reveal reveal-delay-3">
+            B.Tech Computer Science student at <strong>Lovely Professional University</strong> with a passion for architecting high-performance systems, Data Structures & Algorithms in <strong>C++</strong>, and responsive full-stack applications with <strong>Node.js, Express & MongoDB</strong>.
+          </p>
+
+          <div class="hero-cta-group reveal reveal-delay-4">
+            <a href="#projects" class="btn btn-primary" id="hero-cta-projects">
+              <span>Explore My Work</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary" id="hero-cta-contact">
+              <span>Let's Connect</span>
+            </a>
+          </div>
+
+          <!-- Quick Interactive Contact Pills -->
+          <div class="contact-quick-bar reveal reveal-delay-4">
+            <button class="contact-pill" data-copy="manonaiduuu17@gmail.com" title="Click to copy email" id="hero-pill-email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>manonaiduuu17@gmail.com</span>
+              <span class="copy-hint">Copy</span>
+            </button>
+
+            <button class="contact-pill" data-copy="+919346099939" title="Click to copy phone number" id="hero-pill-phone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>+91 9346099939</span>
+              <span class="copy-hint">Copy</span>
+            </button>
+
+            <a href="https://github.com/ManojBommu" target="_blank" rel="noopener noreferrer" class="contact-pill" id="hero-pill-github">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/manoj1718" target="_blank" rel="noopener noreferrer" class="contact-pill" id="hero-pill-linkedin">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Terminal Visual with Floating Badge -->
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="floating-stat-badge badge-top-right">
+            <div class="stat-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number">5th / 50 Teams</div>
+              <div class="stat-label">Hackathon Finalist</div>
+            </div>
+          </div>
+
+          <div class="terminal-card tilt-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <span class="terminal-title">manoj_developer_profile.cpp</span>
+              <span style="font-size:0.75rem; color:#64748b;">UTF-8</span>
+            </div>
+            <pre class="terminal-body"><code><span class="code-comment">// Software Engineer Portfolio</span>
+<span class="code-key">#include</span> &lt;iostream&gt;
+<span class="code-key">#include</span> &lt;vector&gt;
+
+<span class="code-key">struct</span> <span class="code-var">Engineer</span> {
+    std::string name = <span class="code-string">"Bommu Manoj Madhu Kumar"</span>;
+    std::string degree = <span class="code-string">"B.Tech CSE @ LPU"</span>;
+    std::vector&lt;std::string&gt; coreStack = {
+        <span class="code-string">"C++"</span>, <span class="code-string">"DSA"</span>, <span class="code-string">"JavaScript"</span>,
+        <span class="code-string">"Node.js"</span>, <span class="code-string">"MongoDB"</span>
+    };
+    <span class="code-key">bool</span> readyToInnovate = <span class="code-var">true</span>;
+};
+
+<span class="code-key">int</span> <span class="code-var">main</span>() {
+    <span class="code-var">Engineer</span> manoj;
+    std::cout &lt;&lt; <span class="code-string">"Building impactful tech solutions..."</span>;
+    <span class="code-key">return</span> 0;
+}</code></pre>
+          </div>
+
+          <div class="floating-stat-badge badge-bottom-left">
+            <div class="stat-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number">+40% Efficiency</div>
+              <div class="stat-label">Full-Stack RBAC Architecture</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS COUNTER RIBBON ==================== -->
+  <section class="stats-ribbon" aria-label="Key Highlights">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stats-item">
+          <div class="stats-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="stats-val">40%</div>
+            <div class="stats-text">Access Control Efficiency Boost with RBAC</div>
+          </div>
+        </div>
+
+        <div class="stats-item">
+          <div class="stats-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="stats-val">10+</div>
+            <div class="stats-text">Mathematical Operations Supported in DSA Engine</div>
+          </div>
+        </div>
+
+        <div class="stats-item">
+          <div class="stats-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="stats-val">Top 5</div>
+            <div class="stats-text">Hackathon Winner out of 50 Competitive Teams</div>
+          </div>
+        </div>
+
+        <div class="stats-item">
+          <div class="stats-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="stats-val">95%</div>
+            <div class="stats-text">Intermediate Board Score (Academic Excellence)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT & BENTO GRID ==================== -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Engineering Mindset</div>
+        <h2 class="section-title">About Me & Soft Skills</h2>
+        <p class="section-subtitle">A balanced fusion of rigorous algorithmic thinking, full-stack software craftsmanship, and collaborative innovation.</p>
+      </div>
+
+      <div class="about-bento">
+        <!-- Personal Narrative Card -->
+        <div class="glass-panel bento-card reveal tilt-card">
+          <div>
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <h3>Engineering Profile</h3>
+            </div>
+            <p>
+              I am a driven Software Engineering undergraduate at <strong>Lovely Professional University</strong>, focused on building secure, scalable web systems and tackling complex problem-solving challenges through robust Data Structures and Algorithms.
+            </p>
+            <p>
+              My hands-on experience ranges from architecting end-to-end full-stack applications with role-based access control (RBAC) and Mongoose ODM to optimizing term-processing algorithms in C++ with mathematical precision. I thrive on translating real-world constraints into elegant, high-throughput digital experiences.
+            </p>
+          </div>
+
+          <ul class="bio-meta-list">
+            <li class="bio-meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Phagwara, Punjab / Andhra Pradesh, India</span>
+            </li>
+            <li class="bio-meta-item">
+              <span class="meta-label">Education</span>
+              <span class="meta-value">B.Tech in CSE (LPU)</span>
+            </li>
+            <li class="bio-meta-item">
+              <span class="meta-label">Specialization</span>
+              <span class="meta-value">DSA & Full-Stack Development</span>
+            </li>
+            <li class="bio-meta-item">
+              <span class="meta-label">Email</span>
+              <span class="meta-value">manonaiduuu17@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Soft Skills Spotlight -->
+        <div class="glass-panel bento-card reveal reveal-delay-2">
+          <div class="bento-card-header">
+            <div class="bento-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3>Core Soft Skills</h3>
+          </div>
+
+          <div class="soft-skills-grid">
+            <div class="soft-skill-pill">
+              <div class="soft-skill-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="soft-skill-title">Problem-Solving</div>
+                <div class="soft-skill-desc">Deconstructs intricate computational challenges systematically using structured algorithmic workflows and optimized DSA models.</div>
+              </div>
+            </div>
+
+            <div class="soft-skill-pill">
+              <div class="soft-skill-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="soft-skill-title">Adaptability</div>
+                <div class="soft-skill-desc">Quickly masters emerging frameworks, modern JavaScript toolchains, and industry database paradigms in fast-evolving development environments.</div>
+              </div>
+            </div>
+
+            <div class="soft-skill-pill">
+              <div class="soft-skill-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="soft-skill-title">Communication & Teamwork</div>
+                <div class="soft-skill-desc">Demonstrated in high-stakes hackathons, effectively articulating technical architectures, presenting solutions, and synchronizing with cross-functional teams.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS MATRIX ==================== -->
+  <section class="section-padding" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Technical Arsenal</div>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-subtitle">Proficiencies developed across core programming languages, modern web engineering, and enterprise database systems.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="skills-filter-tabs reveal">
+        <button class="filter-tab active" data-category="all">All Skills</button>
+        <button class="filter-tab" data-category="languages">Languages</button>
+        <button class="filter-tab" data-category="frontend-backend">Web & Backend</button>
+        <button class="filter-tab" data-category="tools-db">Tools & Databases</button>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="skills-grid" id="skills-grid">
+        <!-- C++ -->
+        <div class="skill-card reveal" data-category="languages">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 8.5 2 15.5 12 22 22 15.5 22 8.5 12 2"></polygon>
+                <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+              </svg>
+            </div>
+            <span class="skill-category-badge">Core DSA</span>
+          </div>
+          <div class="skill-name">C++</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="92%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>DSA & Algorithms</span>
+            <span>Advanced (92%)</span>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="skill-card reveal" data-category="languages">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <span class="skill-category-badge">Certified</span>
+          </div>
+          <div class="skill-name">Python</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="88%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Scripting & Logic</span>
+            <span>Proficient (88%)</span>
+          </div>
+        </div>
+
+        <!-- C -->
+        <div class="skill-card reveal" data-category="languages">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M16 8h-4a4 4 0 0 0-4 4v0a4 4 0 0 0 4 4h4"></path>
+              </svg>
+            </div>
+            <span class="skill-category-badge">Systems</span>
+          </div>
+          <div class="skill-name">C</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="85%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Low-level Memory</span>
+            <span>Strong (85%)</span>
+          </div>
+        </div>
+
+        <!-- Java -->
+        <div class="skill-card reveal" data-category="languages">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <span class="skill-category-badge">OOP</span>
+          </div>
+          <div class="skill-name">Java</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="82%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Object Oriented</span>
+            <span>Competent (82%)</span>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card reveal" data-category="frontend-backend">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 18l6-6-6-6"></path>
+                <path d="M8 6l-6 6 6 6"></path>
+              </svg>
+            </div>
+            <span class="skill-category-badge">ES6+</span>
+          </div>
+          <div class="skill-name">JavaScript (ES6+)</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="90%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Dynamic Web Logic</span>
+            <span>Advanced (90%)</span>
+          </div>
+        </div>
+
+        <!-- Node.js & Express -->
+        <div class="skill-card reveal" data-category="frontend-backend">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <span class="skill-category-badge">Server</span>
+          </div>
+          <div class="skill-name">Node.js & Express</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="87%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>REST APIs & Auth</span>
+            <span>Proficient (87%)</span>
+          </div>
+        </div>
+
+        <!-- HTML5 & CSS3 -->
+        <div class="skill-card reveal" data-category="frontend-backend">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+              </svg>
+            </div>
+            <span class="skill-category-badge">UI/UX</span>
+          </div>
+          <div class="skill-name">HTML5 & CSS3</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="94%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Keyframes & Responsive</span>
+            <span>Mastery (94%)</span>
+          </div>
+        </div>
+
+        <!-- MongoDB & Mongoose -->
+        <div class="skill-card reveal" data-category="tools-db">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <span class="skill-category-badge">NoSQL</span>
+          </div>
+          <div class="skill-name">MongoDB & Mongoose</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="88%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Data Modeling & Aggregations</span>
+            <span>Proficient (88%)</span>
+          </div>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="skill-card reveal" data-category="tools-db">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                <line x1="4" y1="22" x2="4" y2="15"></line>
+              </svg>
+            </div>
+            <span class="skill-category-badge">RDBMS</span>
+          </div>
+          <div class="skill-name">PostgreSQL</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="80%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Relational Queries & ACID</span>
+            <span>Competent (80%)</span>
+          </div>
+        </div>
+
+        <!-- Git & GitHub -->
+        <div class="skill-card reveal" data-category="tools-db">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="18" r="3"></circle>
+                <circle cx="6" cy="6" r="3"></circle>
+                <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+                <line x1="6" y1="9" x2="6" y2="21"></line>
+              </svg>
+            </div>
+            <span class="skill-category-badge">VCS</span>
+          </div>
+          <div class="skill-name">Git & GitHub</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="90%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Version Control & PRs</span>
+            <span>Advanced (90%)</span>
+          </div>
+        </div>
+
+        <!-- Postman -->
+        <div class="skill-card reveal" data-category="tools-db">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <span class="skill-category-badge">Testing</span>
+          </div>
+          <div class="skill-name">Postman</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="86%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>API Testing & Mocking</span>
+            <span>Proficient (86%)</span>
+          </div>
+        </div>
+
+        <!-- npm -->
+        <div class="skill-card reveal" data-category="tools-db">
+          <div class="skill-header">
+            <div class="skill-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <line x1="1" y1="3" x2="23" y2="3"></line>
+                <path d="M10 12h4"></path>
+              </svg>
+            </div>
+            <span class="skill-category-badge">Package Mgr</span>
+          </div>
+          <div class="skill-name">npm & Tooling</div>
+          <div class="skill-bar-container">
+            <div class="skill-bar-fill" data-progress="89%"></div>
+          </div>
+          <div class="skill-footer">
+            <span>Dependency Management</span>
+            <span>Proficient (89%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PROJECTS SHOWCASE ==================== -->
+  <section class="section-padding" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Engineering Portfolio</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Real-world production architectures, algorithmic calculators, and intelligent chatbot applications built by Manoj.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1: Property Management System -->
+        <article class="project-feature-card reveal tilt-card" id="project-property-management">
+          <div class="project-info">
+            <div class="project-tag-row">
+              <span class="project-type-tag">Full-Stack Application</span>
+              <span class="project-date">Jul 2026</span>
+            </div>
+
+            <h3 class="project-title">Property Management System</h3>
+
+            <ul class="project-desc-bullets">
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Developed a full-stack property management system with <strong>Role-Based Access Control (RBAC)</strong> and secure authentication for 3 user roles, improving access control efficiency by <strong>40%</strong>.</span>
+              </li>
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Built 4 core modules for <strong>Apartment, Tenant, Room Booking, and Complaint Management</strong>, reducing manual management efforts by <strong>35%</strong>.</span>
+              </li>
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Designed robust MongoDB models with <strong>Mongoose ODM</strong> and implemented complete CRUD operations and authorization, boosting data management efficiency by <strong>30%</strong>.</span>
+              </li>
+            </ul>
+
+            <div class="project-metrics-chips">
+              <div class="metric-chip">
+                <span>Access Control:</span>
+                <strong>+40% Efficiency</strong>
+              </div>
+              <div class="metric-chip">
+                <span>Manual Overhead:</span>
+                <strong>-35% Reduction</strong>
+              </div>
+              <div class="metric-chip">
+                <span>Data Operations:</span>
+                <strong>+30% Faster</strong>
+              </div>
+            </div>
+
+            <div class="tech-stack-pills">
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">Express.js</span>
+              <span class="tech-pill">MongoDB</span>
+              <span class="tech-pill">Mongoose</span>
+              <span class="tech-pill">RBAC Auth</span>
+              <span class="tech-pill">HTML5/CSS3/JS</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-outline-glow" data-modal-open="modal-pms-arch" id="btn-pms-modal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Architecture Specs</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Interactive Live Sandbox 1: RBAC Simulator -->
+          <div class="project-interactive-preview">
+            <div class="preview-window">
+              <div class="preview-bar">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <div class="preview-badge-status">
+                  <span class="radar-dot" style="width:6px; height:6px;"></span>
+                  <span>LIVE RBAC SIMULATOR</span>
+                </div>
+              </div>
+
+              <div class="preview-content-box">
+                <div style="font-size:0.8rem; color:var(--text-muted);">Select role to preview dynamic permissions:</div>
+                <div class="rbac-role-selector">
+                  <button class="role-tab-btn active" data-role="admin">Super Admin</button>
+                  <button class="role-tab-btn" data-role="manager">Manager</button>
+                  <button class="role-tab-btn" data-role="tenant">Tenant</button>
+                </div>
+
+                <div class="rbac-view-panel">
+                  <div style="font-weight:700; color:var(--text-primary);" id="rbac-role-name">Super Administrator</div>
+                  <div style="color:var(--text-secondary); font-size:0.75rem; margin-top:0.2rem;" id="rbac-role-desc">
+                    Full system authorization: managing master tenant records, apartment allocations, staff credentials & financial auditing.
+                  </div>
+
+                  <div class="rbac-module-grid" id="rbac-permissions-list">
+                    <div class="rbac-mod-item">
+                      <span>● Apartment Registry</span>
+                      <span class="badge-perm full">FULL ACCESS</span>
+                    </div>
+                    <div class="rbac-mod-item">
+                      <span>● Tenant Records & KYC</span>
+                      <span class="badge-perm full">FULL ACCESS</span>
+                    </div>
+                    <div class="rbac-mod-item">
+                      <span>● Room Booking Engine</span>
+                      <span class="badge-perm full">MANAGE ALL</span>
+                    </div>
+                    <div class="rbac-mod-item">
+                      <span>● Complaints Resolution</span>
+                      <span class="badge-perm full">RESOLVE / REASSIGN</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: Polynomial Calculator (DSA in C++) -->
+        <article class="project-feature-card reverse reveal tilt-card" id="project-polynomial-calculator">
+          <div class="project-info">
+            <div class="project-tag-row">
+              <span class="project-type-tag">Algorithms & DSA</span>
+              <span class="project-date">May 2025</span>
+            </div>
+
+            <h3 class="project-title">Polynomial Calculator</h3>
+
+            <ul class="project-desc-bullets">
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Developed a menu-driven polynomial calculator using <strong>C++ and Data Structures</strong>, supporting <strong>10+ mathematical operations</strong> with high-speed polynomial processing.</span>
+              </li>
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Engineered <strong>addition, subtraction, multiplication, division, root calculation, integration, differentiation, and degree determination</strong> with 8+ core algorithmic operations.</span>
+              </li>
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Designed linked data structures and algorithms for polynomial terms using paired coefficients and exponents, improving computational processing efficiency by <strong>30%</strong>.</span>
+              </li>
+            </ul>
+
+            <div class="project-metrics-chips">
+              <div class="metric-chip">
+                <span>Operations:</span>
+                <strong>10+ Math Routines</strong>
+              </div>
+              <div class="metric-chip">
+                <span>Processing Boost:</span>
+                <strong>+30% via DSA</strong>
+              </div>
+              <div class="metric-chip">
+                <span>Architecture:</span>
+                <strong>Optimized Terms</strong>
+              </div>
+            </div>
+
+            <div class="tech-stack-pills">
+              <span class="tech-pill">C++</span>
+              <span class="tech-pill">DSA</span>
+              <span class="tech-pill">Linked Term Nodes</span>
+              <span class="tech-pill">Polynomial Calculus</span>
+              <span class="tech-pill">O(N+M) Optimization</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="#poly-sandbox-anchor" class="btn btn-outline-glow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>Try Sandbox Live</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Live Sandbox 2: Polynomial Calculator -->
+          <div class="project-interactive-preview" id="poly-sandbox-anchor">
+            <div class="preview-window">
+              <div class="preview-bar">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <div class="preview-badge-status">
+                  <span class="radar-dot" style="width:6px; height:6px;"></span>
+                  <span>DSA CALCULATOR SANDBOX</span>
+                </div>
+              </div>
+
+              <div class="preview-content-box">
+                <div class="poly-sandbox-form">
+                  <div>
+                    <label for="poly1-input" style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">Polynomial 1 (P1):</label>
+                    <input type="text" id="poly1-input" class="poly-input" value="3x^2 + 5x - 4" aria-label="First Polynomial">
+                  </div>
+                  <div>
+                    <label for="poly2-input" style="font-size:0.75rem; color:var(--text-muted); display:block; margin-bottom:4px;">Polynomial 2 (P2):</label>
+                    <input type="text" id="poly2-input" class="poly-input" value="2x^2 - 3x + 6" aria-label="Second Polynomial">
+                  </div>
+
+                  <div class="poly-operations-row">
+                    <button class="poly-op-btn" data-operation="add">Add (P1+P2)</button>
+                    <button class="poly-op-btn" data-operation="subtract">Subtract</button>
+                    <button class="poly-op-btn" data-operation="diff">d/dx(P1)</button>
+                    <button class="poly-op-btn" data-operation="degree">Degree(P1)</button>
+                  </div>
+
+                  <div class="poly-result-screen">
+                    <span id="poly-result-text">Sum: 5x^2 + 2x + 2</span>
+                    <span style="font-size:0.7rem; color:var(--text-muted);">C++ DSA Engine</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: AI-Powered Loan Eligibility Chatbot -->
+        <article class="project-feature-card reveal tilt-card" id="project-loan-chatbot">
+          <div class="project-info">
+            <div class="project-tag-row">
+              <span class="project-type-tag">Financial Technology</span>
+              <span class="project-date">Apr 2024</span>
+            </div>
+
+            <h3 class="project-title">AI-Powered Loan Eligibility Chatbot</h3>
+
+            <ul class="project-desc-bullets">
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Developed a JavaScript and frontend-based conversational bot collecting users' occupation, employment type, monthly salary, expenses, savings, and financial parameters.</span>
+              </li>
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Implemented comprehensive financial analysis and credit eligibility logic to assess debt repayment capacity and compute the maximum loan eligibility.</span>
+              </li>
+              <li class="project-bullet">
+                <span class="bullet-icon">▸</span>
+                <span>Designed a dynamic, stateful chatbot interface providing instantaneous automated loan eligibility recommendations and repayment breakdown.</span>
+              </li>
+            </ul>
+
+            <div class="project-metrics-chips">
+              <div class="metric-chip">
+                <span>Assessment:</span>
+                <strong>Instant Logic</strong>
+              </div>
+              <div class="metric-chip">
+                <span>Metric:</span>
+                <strong>FOIR & DTI Calculation</strong>
+              </div>
+              <div class="metric-chip">
+                <span>UX:</span>
+                <strong>Interactive Conversational</strong>
+              </div>
+            </div>
+
+            <div class="tech-stack-pills">
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Financial Logic</span>
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3 Keyframes</span>
+              <span class="tech-pill">State Machine</span>
+            </div>
+          </div>
+
+          <!-- Interactive Live Sandbox 3: Chatbot Simulator -->
+          <div class="project-interactive-preview">
+            <div class="preview-window">
+              <div class="preview-bar">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <div class="preview-badge-status">
+                  <span class="radar-dot" style="width:6px; height:6px;"></span>
+                  <span>LOANBOT INTERACTIVE DEMO</span>
+                </div>
+              </div>
+
+              <div class="preview-content-box">
+                <div class="chatbot-mini-screen" id="chatbot-screen">
+                  <div class="chat-bubble bot">
+                    👋 Welcome to LoanBot! I'll calculate your loan eligibility in seconds based on your cash flow. What is your monthly salary?
+                  </div>
+                </div>
+
+                <div class="chat-quick-replies" id="chat-quick-replies"></div>
+
+                <div class="chat-input-bar">
+                  <input type="text" id="chat-input" class="poly-input" placeholder="Enter amount or select chip..." aria-label="Chat input">
+                  <button class="btn btn-primary" id="chat-send-btn" style="padding:0.6rem 1rem; font-size:0.85rem;" aria-label="Send message">
+                    Send
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CERTIFICATES & HACKATHON ==================== -->
+  <section class="section-padding" id="certifications">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Verified Credentials</div>
+        <h2 class="section-title">Certificates & Hackathons</h2>
+        <p class="section-subtitle">Formal accreditations, competitive programming accomplishments, and hackathon recognitions.</p>
+      </div>
+
+      <div class="cert-hackathon-grid">
+
+        <!-- Hackathon Achievement Feature Card -->
+        <div class="glass-panel hackathon-card reveal tilt-card">
+          <div>
+            <div class="hackathon-trophy-badge">
+              <span class="trophy-icon">🏆</span>
+              <span>5th Position out of 50 Teams</span>
+            </div>
+
+            <h3 class="hackathon-title">Frontend Agricultural Hackathon Solution</h3>
+            <div class="hackathon-date">Hackathon Milestone • Jul 2024</div>
+
+            <p class="hackathon-desc">
+              Secured <strong>5th position among 50 competing teams</strong> by developing an innovative, frontend-based agricultural intelligence solution designed to boost crop yield through geographical crop suitability, intelligent pesticide recommendations, and sustainable cultivation practices.
+            </p>
+
+            <div class="hackathon-highlight-box">
+              <div style="font-size:0.85rem; font-weight:700; color:#f59e0b; margin-bottom:0.25rem;">Key Contributions & Leadership:</div>
+              <div style="font-size:0.82rem; color:var(--text-secondary); line-height:1.55;">
+                Collaborated with team members to architect, develop, and present the production-ready prototype under strict hackathon deadlines, showcasing advanced frontend craftsmanship, rapid problem-solving, and presentation skills.
+              </div>
+            </div>
+          </div>
+
+          <div class="hackathon-skills-row">
+            <span class="tech-pill">Frontend Architecture</span>
+            <span class="tech-pill">Agri-Tech</span>
+            <span class="tech-pill">Hackathon 5th Place</span>
+            <span class="tech-pill">Rapid Prototyping</span>
+            <span class="tech-pill">Team Collaboration</span>
+          </div>
+        </div>
+
+        <!-- Certificates Column -->
+        <div class="certs-column">
+
+          <!-- DSA Certificate -->
+          <div class="cert-item-card reveal tilt-card">
+            <div class="cert-icon-seal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+            </div>
+            <div class="cert-details">
+              <div class="cert-title">Data Structure Algorithms (DSA)</div>
+              <div class="cert-issuer">Centre for Professional Enhancement</div>
+            </div>
+            <div class="cert-date-tag">Aug 2026</div>
+          </div>
+
+          <!-- DBMS Certificate -->
+          <div class="cert-item-card reveal tilt-card reveal-delay-1">
+            <div class="cert-icon-seal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div class="cert-details">
+              <div class="cert-title">Database Management System (DBMS)</div>
+              <div class="cert-issuer">Infosys SpringBoard</div>
+            </div>
+            <div class="cert-date-tag">Jul 2026</div>
+          </div>
+
+          <!-- Python Certificate -->
+          <div class="cert-item-card reveal tilt-card reveal-delay-2">
+            <div class="cert-icon-seal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="cert-details">
+              <div class="cert-title">Python Programming</div>
+              <div class="cert-issuer">Coursera</div>
+            </div>
+            <div class="cert-date-tag">Mar 2025</div>
+          </div>
+
+          <!-- Web Development Certificate -->
+          <div class="cert-item-card reveal tilt-card reveal-delay-3">
+            <div class="cert-icon-seal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+              </svg>
+            </div>
+            <div class="cert-details">
+              <div class="cert-title">Web Development</div>
+              <div class="cert-issuer">Hackathon Competition</div>
+            </div>
+            <div class="cert-date-tag">Sep 2024</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDUCATION JOURNEY ==================== -->
+  <section class="section-padding" id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Academic Milestones</div>
+        <h2 class="section-title">Education Journey</h2>
+        <p class="section-subtitle">Academic foundations in Computer Science, Mathematics, and foundational science.</p>
+      </div>
+
+      <div class="education-timeline">
+
+        <!-- LPU -->
+        <div class="timeline-item reveal">
+          <div class="timeline-node"></div>
+          <div class="timeline-card tilt-card">
+            <div class="timeline-meta-row">
+              <span class="timeline-date">Aug 2024 – Present</span>
+              <span class="timeline-score-badge">CGPA: 6.6</span>
+            </div>
+            <h3 class="timeline-inst">Lovely Professional University</h3>
+            <div class="timeline-degree">Bachelor of Technology — Computer Science and Engineering</div>
+            <div class="timeline-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Phagwara, Punjab</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tirumala College -->
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-node"></div>
+          <div class="timeline-card tilt-card">
+            <div class="timeline-meta-row">
+              <span class="timeline-date">Jun 2022 – May 2024</span>
+              <span class="timeline-score-badge">Percentage: 95%</span>
+            </div>
+            <h3 class="timeline-inst">Tirumala College</h3>
+            <div class="timeline-degree">Intermediate Education (BIEAP)</div>
+            <div class="timeline-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Rajahmundry, Andhra Pradesh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- De Paul High School -->
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-node"></div>
+          <div class="timeline-card tilt-card">
+            <div class="timeline-meta-row">
+              <span class="timeline-date">Jun 2021 – May 2022</span>
+              <span class="timeline-score-badge">Percentage: 86.6%</span>
+            </div>
+            <h3 class="timeline-inst">De Paul E.M High School</h3>
+            <div class="timeline-degree">Secondary School Certificate (SSC)</div>
+            <div class="timeline-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Bhimadolu, Andhra Pradesh</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section class="section-padding" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Get In Touch</div>
+        <h2 class="section-title">Let's Build Something Exceptional</h2>
+        <p class="section-subtitle">Interested in discussing software engineering opportunities, collaborative projects, or full-stack development? Reach out directly!</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Cards Column -->
+        <div class="contact-info-panel reveal">
+          <div>
+            <h3 class="contact-headline">Direct Contact Channels</h3>
+            <p class="contact-subtext">Feel free to reach out via email, phone, or connect with me on LinkedIn and GitHub.</p>
+          </div>
+
+          <div class="contact-cards-stack">
+            <!-- Email Card -->
+            <div class="interactive-contact-card" data-copy="manonaiduuu17@gmail.com" title="Click to copy email address">
+              <div class="card-contact-left">
+                <div class="contact-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-label-title">Email Address</div>
+                  <div class="contact-val-text">manonaiduuu17@gmail.com</div>
+                </div>
+              </div>
+              <div class="copy-action-icon" title="Copy to clipboard">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="interactive-contact-card" data-copy="+919346099939" title="Click to copy phone number">
+              <div class="card-contact-left">
+                <div class="contact-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-label-title">Mobile Phone</div>
+                  <div class="contact-val-text">+91 9346099939</div>
+                </div>
+              </div>
+              <div class="copy-action-icon" title="Copy to clipboard">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links-row">
+            <a href="https://www.linkedin.com/in/manoj1718" target="_blank" rel="noopener noreferrer" class="social-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <span>LinkedIn Profile</span>
+            </a>
+
+            <a href="https://github.com/ManojBommu" target="_blank" rel="noopener noreferrer" class="social-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              <span>GitHub Projects</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Send Message Form -->
+        <div class="contact-form-panel reveal reveal-delay-1">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Your Full Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Alex Henderson" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Your Email Address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="alex@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Project Details / Message</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Hi Manoj, I came across your portfolio and would like to connect regarding an engineering role..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="btn-send-message">
+              <span>Send Message</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="brand-logo">
+          <div class="logo-badge">M</div>
+          <span>Bommu Manoj Madhu Kumar</span>
+        </div>
+
+        <div class="footer-text">
+          Crafted with HTML, CSS Keyframes & JavaScript • © 2026 Manoj. All Rights Reserved.
+        </div>
+
+        <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to Top" title="Back to Top">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== PROPERTY MANAGEMENT SYSTEM ARCH MODAL ==================== -->
+  <div class="modal-overlay" id="modal-pms-arch" role="dialog" aria-modal="true" aria-labelledby="modal-pms-title">
+    <div class="modal-container">
+      <button class="modal-close-btn" data-modal-close aria-label="Close modal">&times;</button>
+      
+      <div style="margin-bottom:1.5rem;">
+        <div class="section-badge">Architecture Blueprint</div>
+        <h3 id="modal-pms-title" style="font-size:1.75rem; margin-bottom:0.5rem;">Property Management System</h3>
+        <p style="color:var(--text-secondary); font-size:0.95rem;">Deep Dive into 3-Role RBAC & Modular Full-Stack Engineering</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:1.25rem;">
+        <div style="background:rgba(10,15,26,0.8); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.25rem;">
+          <h4 style="color:var(--accent-primary); font-size:1.05rem; margin-bottom:0.6rem;">1. Role-Based Access Control (RBAC) Architecture</h4>
+          <p style="color:var(--text-secondary); font-size:0.88rem; line-height:1.6;">
+            Enforces strict separation of concerns across <strong>Super Admin</strong>, <strong>Property Manager</strong>, and <strong>Tenant</strong> using JSON Web Tokens (JWT) and custom middleware interceptors. Improved access control efficiency by <strong>40%</strong>, preventing privilege escalation.
+          </p>
+        </div>
+
+        <div style="background:rgba(10,15,26,0.8); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.25rem;">
+          <h4 style="color:var(--accent-primary); font-size:1.05rem; margin-bottom:0.6rem;">2. The 4 Core Integrated Modules</h4>
+          <ul style="color:var(--text-secondary); font-size:0.88rem; line-height:1.6; padding-left:1.2rem; display:flex; flex-direction:column; gap:0.4rem;">
+            <li><strong>Apartment Registry Module:</strong> Tracks physical units, occupancy status, square footage, and amenities.</li>
+            <li><strong>Tenant KYC & Onboarding:</strong> Secure storage of tenant profiles, verification documentation, and lease agreements.</li>
+            <li><strong>Room Booking Engine:</strong> Automated room reservations with collision prevention, lowering manual scheduling by 35%.</li>
+            <li><strong>Complaint Resolution Portal:</strong> Ticket assignment workflow with SLA tracking from grievance to closure.</li>
+          </ul>
+        </div>
+
+        <div style="background:rgba(10,15,26,0.8); border:1px solid var(--border-light); border-radius:var(--radius-md); padding:1.25rem;">
+          <h4 style="color:var(--accent-primary); font-size:1.05rem; margin-bottom:0.6rem;">3. MongoDB & Mongoose Schema Optimization</h4>
+          <p style="color:var(--text-secondary); font-size:0.88rem; line-height:1.6;">
+            Optimized document structures with referenced sub-schemas and indexed fields for tenant queries, reducing query response times and improving data management efficiency by <strong>30%</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE CONNECT MODAL ==================== -->
+  <div class="modal-overlay" id="modal-mobile-connect" role="dialog" aria-modal="true" aria-labelledby="modal-mobile-title">
+    <div class="modal-container" style="max-width: 680px;">
+      <button class="modal-close-btn" data-modal-close aria-label="Close modal">&times;</button>
+      
+      <div style="margin-bottom:1.5rem; text-align:center;">
+        <div class="section-badge">Cross-Device Access</div>
+        <h3 id="modal-mobile-title" style="font-size:1.75rem; margin-bottom:0.4rem;">Open on Any Mobile Device or PC</h3>
+        <p style="color:var(--text-secondary); font-size:0.92rem;">Scan the QR code with your phone camera or enter the URL into your mobile browser.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem;">
+        <!-- Option 1: Wi-Fi Access -->
+        <div style="background:rgba(10,15,26,0.85); border:1px solid var(--accent-border); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <div style="font-weight:700; color:var(--accent-primary); font-size:1rem; margin-bottom:0.25rem;">📶 Wi-Fi / Local Network</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.85rem;">Fastest when connected to the same Wi-Fi</div>
+          
+          <div style="background:#fff; padding:8px; border-radius:10px; margin-bottom:0.85rem; box-shadow:0 0 20px var(--accent-glow-soft); line-height:0;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=http://172.22.77.106:3000/" alt="Local Wi-Fi QR Code" width="160" height="160" style="display:block; border-radius:4px;">
+          </div>
+
+          <div style="font-family:var(--font-mono); font-size:0.82rem; background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; color:#fff; word-break:break-all; margin-bottom:0.75rem;">
+            http://172.22.77.106:3000/
+          </div>
+
+          <button class="btn btn-outline-glow" data-copy="http://172.22.77.106:3000/" style="width:100%; padding:0.55rem 1rem; font-size:0.82rem;">
+            <span>Copy Wi-Fi Link</span>
+          </button>
+        </div>
+
+        <!-- Option 2: Worldwide Any Device Access -->
+        <div style="background:rgba(10,15,26,0.85); border:1px solid var(--accent-border); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <div style="font-weight:700; color:#34d399; font-size:1rem; margin-bottom:0.25rem;">🌍 Worldwide Public Link</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.85rem;">Works anywhere (4G/5G, cellular, any network)</div>
+          
+          <div style="background:#fff; padding:8px; border-radius:10px; margin-bottom:0.85rem; box-shadow:0 0 20px rgba(52,211,153,0.3); line-height:0;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://itchy-rivers-switch.loca.lt" alt="Worldwide Public QR Code" width="160" height="160" style="display:block; border-radius:4px;">
+          </div>
+
+          <div style="font-family:var(--font-mono); font-size:0.82rem; background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; color:#fff; word-break:break-all; margin-bottom:0.75rem;">
+            https://itchy-rivers-switch.loca.lt
+          </div>
+
+          <button class="btn btn-primary" data-copy="https://itchy-rivers-switch.loca.lt" style="width:100%; padding:0.55rem 1rem; font-size:0.82rem;">
+            <span>Copy Public Link</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-top:1.25rem; padding:0.85rem 1rem; background:rgba(255,255,255,0.03); border:1px dashed var(--border-light); border-radius:var(--radius-sm); font-size:0.8rem; color:var(--text-secondary); text-align:center;">
+        💡 <strong>Quick Tip:</strong> Open your smartphone's Camera app and point it at either QR code above to launch the portfolio instantly without typing!
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
