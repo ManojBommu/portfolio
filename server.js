@@ -48,6 +48,21 @@ const server = http.createServer((req, res) => {
   }
 
   let reqPath = req.url.split('?')[0];
+
+  // API endpoint for dynamic mobile / cross-device network detection
+  if (reqPath === '/api/network-info') {
+    const localIps = getLocalIpAddresses();
+    const primaryIp = localIps.length > 0 ? localIps[0].ip : '127.0.0.1';
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    res.end(JSON.stringify({
+      port: PORT,
+      ip: primaryIp,
+      ips: localIps,
+      url: `http://${primaryIp}:${PORT}/`
+    }));
+    return;
+  }
+
   if (reqPath === '/') reqPath = '/index.html';
 
   const filePath = path.join(__dirname, reqPath);

@@ -119,11 +119,26 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
+  height: 100dvh;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+}
+
+/* Touch & Mobile Base Optimizations */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.menu-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none;
 }
 
 .orb {
@@ -447,13 +462,98 @@ img, svg {
   box-shadow: 0 0 20px var(--accent-glow);
 }
 
+/* ----------------- 3-Bar Animated Cyber Hamburger ----------------- */
 .mobile-toggle {
   display: none;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 1.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  width: 44px;
+  height: 44px;
+  padding: 0;
   cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all var(--transition-fast);
+  z-index: 1002;
+}
+
+.mobile-toggle:hover {
+  background: var(--bg-surface-elevated);
+  border-color: var(--accent-border);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-toggle.active {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-glow-soft);
+}
+
+.mobile-toggle.active .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background-color: var(--accent-primary);
+}
+
+.mobile-toggle.active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-toggle.active .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background-color: var(--accent-primary);
+}
+
+/* ----------------- Mobile Drawer Actions ----------------- */
+.mobile-drawer-actions {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.drawer-theme-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.drawer-theme-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.drawer-buttons-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn-drawer {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.95rem;
+  justify-content: center;
 }
 
 /* ----------------- Buttons ----------------- */
@@ -1993,7 +2093,227 @@ img, svg {
   transform: translateY(-3px);
 }
 
+/* ----------------- Floating Mobile Quick Dock (1-Thumb UX) ----------------- */
+.mobile-dock {
+  display: none;
+  position: fixed;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 998;
+  background: rgba(8, 12, 22, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-full);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75), 0 0 25px var(--accent-glow-soft);
+  padding: 6px 14px;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100vw - 28px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-width: 48px;
+  transition: all var(--transition-fast);
+}
+
+.dock-item svg {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.dock-item:hover, .dock-item:active {
+  color: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dock-item:active svg {
+  transform: scale(1.18);
+}
+
+.dock-item-qr {
+  position: relative;
+}
+
+.dock-qr-badge {
+  background: var(--accent-gradient);
+  color: #050811;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px var(--accent-glow);
+  margin-top: -6px;
+  transition: transform 0.25s ease;
+}
+
+.dock-item-qr:active .dock-qr-badge {
+  transform: scale(1.15) rotate(10deg);
+}
+
+/* ----------------- Mobile Connect Dialog & QR Code ----------------- */
+.mobile-connect-dialog {
+  max-width: 680px;
+  width: min(94vw, 680px);
+  padding: 1.75rem 1.4rem;
+}
+
+.modal-header-block {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.mobile-connect-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.connect-card {
+  background: rgba(10, 15, 26, 0.88);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.connect-card.secondary-card {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.connect-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-primary);
+  background: var(--accent-glow-soft);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.connect-badge.secondary {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.connect-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.connect-card-hint {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.qr-box-wrapper {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 25px var(--accent-glow-soft);
+  line-height: 0;
+  display: inline-block;
+}
+
+.qr-code-img {
+  display: block;
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+}
+
+.connect-url-display {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  word-break: break-all;
+  width: 100%;
+  margin-bottom: 0.85rem;
+}
+
+.btn-copy-wifi {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.mobile-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.mobile-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.mobile-feature-item .feat-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.mobile-feature-item strong {
+  color: var(--text-primary);
+  display: block;
+}
+
+.connect-modal-tip {
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
 /* ----------------- Responsive Breakpoints ----------------- */
+
+/* 1. Large Tablets & Small Laptops (<= 1024px) */
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -2016,6 +2336,17 @@ img, svg {
   .hero-visual {
     max-width: 580px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  /* Keep floating badges contained so they don't cause horizontal overflow */
+  .floating-stat-badge {
+    position: static;
+    margin: 0.85rem auto;
+    max-width: 320px;
+    width: 90%;
+    justify-content: center;
+    animation: none;
   }
 
   .stats-grid {
@@ -2027,7 +2358,8 @@ img, svg {
   }
 
   .about-bento {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
   .project-feature-card, .project-feature-card.reverse {
@@ -2050,57 +2382,53 @@ img, svg {
   }
 }
 
-@media (max-width: 768px) {
+/* 2. Tablets & Mobile Landscape / Drawer Threshold (<= 992px) */
+@media (max-width: 992px) {
   :root {
     --nav-height: 70px;
   }
 
-  html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-  }
-
-  .container {
-    padding: 0 1.2rem;
-  }
-
   .navbar .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 
-  .brand-logo {
-    font-size: 1.15rem;
-    gap: 0.5rem;
+  .mobile-toggle {
+    display: flex;
   }
 
-  .logo-badge {
-    width: 34px;
-    height: 34px;
-    font-size: 1rem;
+  .btn-nav-cta {
+    display: none;
   }
 
+  /* Hide header theme picker on mobile/tablet header (placed inside mobile drawer) */
+  .nav-actions .theme-picker {
+    display: none;
+  }
+
+  /* Mobile/Tablet Drawer */
   .nav-menu {
     position: fixed;
     top: var(--nav-height);
     left: 0;
     width: 100%;
     height: calc(100vh - var(--nav-height));
+    height: calc(100dvh - var(--nav-height));
     background: rgba(6, 10, 18, 0.98);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 3rem 1.5rem;
-    gap: 1.75rem;
+    padding: 2.25rem 1.5rem 4rem;
+    gap: 1.35rem;
     border-bottom: 1px solid var(--border-light);
     transform: translateY(-120%);
     opacity: 0;
     pointer-events: none;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     z-index: 999;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.active {
@@ -2110,57 +2438,65 @@ img, svg {
   }
 
   .nav-link {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    padding: 0.65rem 1.5rem;
+    padding: 0.6rem 1.5rem;
     width: 100%;
     text-align: center;
   }
 
-  .mobile-toggle {
+  .mobile-drawer-actions {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-light);
-    font-size: 1.4rem;
   }
 
-  .btn-nav-cta {
-    display: none;
+  .about-bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. Smartphones & Tablet Portrait (<= 768px) */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
   }
 
-  .theme-picker {
-    padding: 3px 5px;
-    gap: 4px;
+  .mobile-dock {
+    display: flex;
   }
 
-  .theme-dot {
-    width: 16px;
-    height: 16px;
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .brand-logo {
+    font-size: 1.15rem;
+    gap: 0.5rem;
+  }
+
+  .logo-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 
   /* Hero Mobile Refinements */
   .hero-section {
-    padding-top: calc(var(--nav-height) + 1.5rem);
+    padding-top: calc(var(--nav-height) + 1.25rem);
     padding-bottom: 2.5rem;
     min-height: auto;
   }
 
   .hero-title {
-    font-size: clamp(2.1rem, 7vw, 2.75rem);
+    font-size: clamp(2rem, 7vw, 2.6rem);
   }
 
   .hero-typing-wrapper {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     min-height: 2.2rem;
   }
 
   .hero-description {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     line-height: 1.6;
   }
 
@@ -2172,7 +2508,7 @@ img, svg {
 
   .hero-cta-group .btn {
     width: 100%;
-    padding: 0.9rem 1.5rem;
+    padding: 0.85rem 1.5rem;
   }
 
   .contact-quick-bar {
@@ -2196,39 +2532,31 @@ img, svg {
     max-width: 100%;
   }
 
-  .floating-stat-badge {
-    position: static;
-    margin: 0.85rem 0;
-    width: 100%;
-    justify-content: center;
-    animation: none;
+  .terminal-body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.82rem;
+    padding: 1.15rem;
   }
 
-  .badge-top-right, .badge-bottom-left {
-    top: auto;
-    bottom: auto;
-    left: auto;
-    right: auto;
-  }
-
-  /* Stats Ribbon */
+  /* Stats Ribbon: 2x2 Clean App Dashboard Layout */
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.75rem 1.25rem;
-  }
-
-  .stats-item::after {
-    display: none !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.35rem 1rem;
   }
 
   .stats-val {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
+  }
+
+  .stats-label {
+    font-size: 0.78rem;
   }
 
   /* Bento Grid & About */
   .bento-card {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.2rem;
   }
 
   .bio-meta-list {
@@ -2237,25 +2565,40 @@ img, svg {
   }
 
   .section-padding {
-    padding: 4rem 0;
+    padding: 3.75rem 0;
   }
 
   .section-title {
-    font-size: 1.85rem;
+    font-size: 1.8rem;
   }
 
   .section-subtitle {
     font-size: 0.95rem;
   }
 
-  /* Skills Matrix */
+  /* Skills Filter Tabs: Touch Horizontal Scroll */
   .skills-filter-tabs {
-    gap: 0.45rem;
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem 0.75rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+  }
+
+  .skills-filter-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-tab {
-    padding: 0.5rem 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0.55rem 1.1rem;
     font-size: 0.82rem;
+    border-radius: var(--radius-full);
   }
 
   .skills-grid {
@@ -2265,12 +2608,12 @@ img, svg {
 
   /* Projects Section */
   .project-feature-card, .project-feature-card.reverse {
-    padding: 1.5rem 1.2rem;
-    gap: 1.75rem;
+    padding: 1.35rem 1.15rem;
+    gap: 1.5rem;
   }
 
   .project-title {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
   }
 
   .project-metrics-chips {
@@ -2287,9 +2630,9 @@ img, svg {
     width: 100%;
   }
 
-  /* Sandboxes on Mobile */
+  /* Interactive Sandboxes on Mobile */
   .preview-content-box {
-    padding: 1.1rem;
+    padding: 1rem;
   }
 
   .rbac-role-selector {
@@ -2298,8 +2641,9 @@ img, svg {
   }
 
   .role-tab-btn {
-    padding: 0.45rem 0.3rem;
-    font-size: 0.72rem;
+    padding: 0.55rem 0.3rem;
+    font-size: 0.74rem;
+    min-height: 42px;
   }
 
   .rbac-module-grid {
@@ -2313,13 +2657,24 @@ img, svg {
   }
 
   .poly-op-btn {
-    padding: 0.6rem 0.5rem;
-    font-size: 0.8rem;
-    min-height: 42px;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.82rem;
+    min-height: 44px;
+  }
+
+  .poly-result-screen {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    word-break: break-all;
   }
 
   .chatbot-mini-screen {
-    height: 200px;
+    height: 210px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .chat-bubble {
+    max-width: 90%;
   }
 
   /* Timeline */
@@ -2348,12 +2703,12 @@ img, svg {
 
   /* Contact Section */
   .contact-form-panel {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.2rem;
   }
 
   .form-input, .form-textarea {
-    font-size: 16px; /* Prevents iOS Safari auto-zoom on focus */
-    padding: 0.75rem 1rem;
+    font-size: 16px; /* Prevents iOS Safari auto-zoom */
+    padding: 0.8rem 1rem;
   }
 
   .social-links-row {
@@ -2363,29 +2718,54 @@ img, svg {
   .social-btn {
     width: 100%;
     justify-content: center;
+    min-height: 44px;
   }
 
-  /* Modal */
+  /* Modals */
   .modal-container {
-    padding: 1.5rem 1.25rem;
-    max-height: 85vh;
+    padding: 1.35rem 1.15rem;
+    max-height: 90vh;
+    width: min(94vw, 680px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-connect-grid {
+    grid-template-columns: 1fr;
   }
 
   .toast {
     left: 1rem;
     right: 1rem;
-    bottom: 1.25rem;
+    bottom: calc(85px + env(safe-area-inset-bottom, 0px));
     justify-content: center;
   }
 }
 
+/* 4. Small Smartphones (<= 480px) */
 @media (max-width: 480px) {
+  .hero-name-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .hero-profile-avatar-frame {
+    width: 95px;
+    height: 95px;
+    border-radius: 22px;
+  }
+
+  .hero-profile-avatar-img {
+    border-radius: 19px;
+  }
+
   .hero-title {
-    font-size: 1.95rem;
+    font-size: clamp(1.75rem, 8vw, 2.2rem);
   }
 
   .section-title {
-    font-size: 1.65rem;
+    font-size: 1.6rem;
   }
 
   .navbar {
@@ -2395,14 +2775,37 @@ img, svg {
   .nav-menu {
     top: 64px;
     height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
   }
 
   .preview-content-box {
     padding: 0.85rem;
   }
 
-  .rbac-role-selector {
-    grid-template-columns: 1fr;
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .stats-val {
+    font-size: 1.4rem;
+  }
+
+  .stats-label {
+    font-size: 0.72rem;
+  }
+
+  .poly-input-group {
+    flex-direction: column;
+  }
+
+  .cert-modal-dialog {
+    padding: 1.15rem 0.9rem !important;
+  }
+
+  .cert-modal-img {
+    max-height: 50vh;
   }
 }
 
@@ -2759,7 +3162,7 @@ img, svg {
   border-radius: 4px;
 }
 
-/* ----------------- Responsive Adjustments ----------------- */
+/* ----------------- Avatar & Cert Responsive Adjustments ----------------- */
 @media (max-width: 900px) {
   .hero-name-container {
     gap: 1.35rem;
@@ -2801,6 +3204,19 @@ img, svg {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name-container {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 1rem;
+  }
+  .hero-profile-avatar-frame {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto;
   }
 }
 

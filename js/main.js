@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initModals();
   initBackToTop();
+  initMobileConnect();
 });
 
 /* ----------------- 1. Custom Glow Cursor ----------------- */
@@ -26,6 +27,12 @@ function initCursor() {
   const dot = document.querySelector('.custom-cursor-dot');
   const outline = document.querySelector('.custom-cursor-outline');
   if (!dot || !outline || window.matchMedia('(pointer: coarse)').matches) return;
+
+  // Immediately neutralize custom cursor on touch interaction
+  window.addEventListener('touchstart', () => {
+    dot.style.display = 'none';
+    outline.style.display = 'none';
+  }, { once: true, passive: true });
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -164,28 +171,40 @@ function initNavScroll() {
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+  }, { passive: true });
 
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const isOpen = navMenu.classList.contains('active');
-      mobileToggle.innerHTML = isOpen ? '✕' : '☰';
+    function toggleMobileMenu(open) {
+      const shouldOpen = open !== undefined ? open : !navMenu.classList.contains('active');
+      navMenu.classList.toggle('active', shouldOpen);
+      mobileToggle.classList.toggle('active', shouldOpen);
+      mobileToggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+      document.body.classList.toggle('menu-open', shouldOpen);
+    }
+
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
     });
 
-    // Close menu when clicking nav links
-    navMenu.querySelectorAll('.nav-link').forEach((link) => {
+    // Close menu when clicking nav links or drawer action buttons
+    navMenu.querySelectorAll('.nav-link, .btn-drawer').forEach((link) => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileToggle.innerHTML = '☰';
+        toggleMobileMenu(false);
       });
     });
 
     // Close menu when tapping outside on mobile
     document.addEventListener('click', (e) => {
-      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && e.target !== mobileToggle && !mobileToggle.contains(e.target)) {
-        navMenu.classList.remove('active');
-        mobileToggle.innerHTML = '☰';
+      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        toggleMobileMenu(false);
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        toggleMobileMenu(false);
       }
     });
   }
@@ -195,6 +214,7 @@ function initNavScroll() {
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
+  const dockItems = document.querySelectorAll('.dock-item');
 
   window.addEventListener('scroll', () => {
     let scrollY = window.pageYOffset;
@@ -211,9 +231,16 @@ function initScrollSpy() {
             link.classList.add('active');
           }
         });
+
+        dockItems.forEach((item) => {
+          item.classList.remove('active');
+          if (item.getAttribute('href') === `#${sectionId}`) {
+            item.classList.add('active');
+          }
+        });
       }
     });
-  });
+  }, { passive: true });
 }
 
 /* ----------------- 6. Intersection Observer Reveals ----------------- */
@@ -745,4 +772,62 @@ function initBackToTop() {
       behavior: 'smooth'
     });
   });
+}
+
+/* ----------------- 15. Dynamic Cross-Device Mobile Connect & QR ----------------- */
+function initMobileConnect() {
+  const qrImg = document.getElementById('qr-wifi-img');
+  const qrText = document.getElementById('qr-wifi-url-text');
+  const btnWifi = document.getElementById('btn-copy-wifi');
+  const btnShare = document.getElementById('btn-share-mobile');
+
+  // Fetch live network IP and URL from local node server
+  fetch('/api/network-info')
+    .then((res) => {
+      if (!res.ok) throw new Error('Network info endpoint unavailable');
+      return res.json();
+    })
+    .then((data) => {
+      if (data && data.url) {
+        applyMobileUrl(data.url);
+      }
+    })
+    .catch(() => {
+      // If accessed over Wi-Fi on a phone or tablet, adapt to current origin
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        applyMobileUrl(window.location.origin + '/');
+      }
+    });
+
+  function applyMobileUrl(url) {
+    if (qrImg) {
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+    }
+    if (qrText) {
+      qrText.textContent = url;
+    }
+    if (btnWifi) {
+      btnWifi.setAttribute('data-copy', url);
+    }
+    if (btnShare) {
+      btnShare.setAttribute('data-copy', url);
+    }
+  }
+
+  // Native Web Share API integration on mobile/tablet devices
+  if (btnShare && navigator.share) {
+    btnShare.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const shareUrl = btnShare.getAttribute('data-copy') || window.location.href;
+      try {
+        await navigator.share({
+          title: 'Bommu Manoj Madhu Kumar - Software Engineer Portfolio',
+          text: 'Explore Manoj\'s Full-Stack & C++/DSA Engineering Portfolio, live sandboxes and verified certificates!',
+          url: shareUrl
+        });
+      } catch (err) {
+        // Fallback handled by data-copy
+      }
+    });
+  }
 }

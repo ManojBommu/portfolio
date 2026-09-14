@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Bommu Manoj Madhu Kumar | Full-Stack Software Engineer & DSA Specialist</title>
   <meta name="description" content="Portfolio of Bommu Manoj Madhu Kumar - Computer Science Engineer, Full-Stack Web Developer, DSA in C++ & MERN Specialist. View projects, interactive sandboxes, and achievements.">
   <meta name="keywords" content="Bommu Manoj Madhu Kumar, Portfolio, Software Engineer, Full Stack Developer, C++, DSA, MERN, Lovely Professional University">
   <meta name="author" content="Bommu Manoj Madhu Kumar">
+  <meta name="theme-color" content="#060911">
   <meta property="og:title" content="Bommu Manoj Madhu Kumar | Software Engineer Portfolio">
   <meta property="og:description" content="Explore my full-stack projects, live interactive chatbots, DSA calculators, and engineering achievements.">
   <meta property="og:type" content="website">
@@ -55,7 +56,35 @@
           <li><a href="#certifications" class="nav-link">Certificates</a></li>
           <li><a href="#education" class="nav-link">Education</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
-          <li><a href="#" data-modal-open="modal-mobile-connect" class="nav-link" style="color:var(--accent-primary);">📱 Mobile Link & QR</a></li>
+          
+          <!-- Mobile Drawer Action Items (Visible on Mobile/Tablet Drawer) -->
+          <li class="mobile-drawer-actions" aria-hidden="false">
+            <div class="drawer-theme-box">
+              <span class="drawer-theme-title">Theme Palette</span>
+              <div class="theme-picker" title="Switch Accent Theme">
+                <div class="theme-dot active" data-pick="cyan" title="Cyber Cyan"></div>
+                <div class="theme-dot" data-pick="violet" title="Neon Violet"></div>
+                <div class="theme-dot" data-pick="emerald" title="Emerald Matrix"></div>
+                <div class="theme-dot" data-pick="amber" title="Solar Amber"></div>
+              </div>
+            </div>
+            <div class="drawer-buttons-stack">
+              <button class="btn btn-outline-glow btn-drawer" data-modal-open="modal-mobile-connect" id="drawer-mobile-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+                <span>📱 Scan / Mobile Link</span>
+              </button>
+              <a href="#contact" class="btn btn-primary btn-drawer" id="drawer-hire-btn">
+                <span>Hire Me & Connect</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </li>
         </ul>
       </nav>
 
@@ -78,7 +107,11 @@
 
         <a href="#contact" class="btn-nav-cta" id="nav-hire-cta">Hire Me</a>
 
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -1459,55 +1492,84 @@
 
   <!-- ==================== MOBILE CONNECT MODAL ==================== -->
   <div class="modal-overlay" id="modal-mobile-connect" role="dialog" aria-modal="true" aria-labelledby="modal-mobile-title">
-    <div class="modal-container" style="max-width: 680px;">
+    <div class="modal-container mobile-connect-dialog">
       <button class="modal-close-btn" data-modal-close aria-label="Close modal">&times;</button>
       
-      <div style="margin-bottom:1.5rem; text-align:center;">
+      <div class="modal-header-block">
         <div class="section-badge">Cross-Device Access</div>
-        <h3 id="modal-mobile-title" style="font-size:1.75rem; margin-bottom:0.4rem;">Open on Any Mobile Device or PC</h3>
-        <p style="color:var(--text-secondary); font-size:0.92rem;">Scan the QR code with your phone camera or enter the URL into your mobile browser.</p>
+        <h3 id="modal-mobile-title" class="modal-title">Open on Any Mobile Phone or Tablet</h3>
+        <p class="modal-subtitle">Scan the live QR code with your phone/tablet camera or copy the network URL below.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem;">
-        <!-- Option 1: Wi-Fi Access -->
-        <div style="background:rgba(10,15,26,0.85); border:1px solid var(--accent-border); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
-          <div style="font-weight:700; color:var(--accent-primary); font-size:1rem; margin-bottom:0.25rem;">📶 Wi-Fi / Local Network</div>
-          <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.85rem;">Fastest when connected to the same Wi-Fi</div>
+      <div class="mobile-connect-grid">
+        <!-- Option 1: Wi-Fi / Local Network Live Access -->
+        <div class="connect-card primary-card">
+          <div class="connect-badge">📶 Active Wi-Fi Connection</div>
+          <div class="connect-card-title">Instant Local Network Access</div>
+          <div class="connect-card-hint">Fastest when connected to your Wi-Fi or mobile hotspot</div>
           
-          <div style="background:#fff; padding:8px; border-radius:10px; margin-bottom:0.85rem; box-shadow:0 0 20px var(--accent-glow-soft); line-height:0;">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=http://172.22.77.106:3000/" alt="Local Wi-Fi QR Code" width="160" height="160" style="display:block; border-radius:4px;">
+          <div class="qr-box-wrapper">
+            <img id="qr-wifi-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://172.21.227.75:3000/" alt="Local Wi-Fi QR Code" width="160" height="160" class="qr-code-img">
           </div>
 
-          <div style="font-family:var(--font-mono); font-size:0.82rem; background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; color:#fff; word-break:break-all; margin-bottom:0.75rem;">
-            http://172.22.77.106:3000/
+          <div class="connect-url-display" id="qr-wifi-url-text">
+            http://172.21.227.75:3000/
           </div>
 
-          <button class="btn btn-outline-glow" data-copy="http://172.22.77.106:3000/" style="width:100%; padding:0.55rem 1rem; font-size:0.82rem;">
-            <span>Copy Wi-Fi Link</span>
+          <button class="btn btn-outline-glow btn-copy-wifi" id="btn-copy-wifi" data-copy="http://172.21.227.75:3000/">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span id="btn-copy-wifi-label">Copy Wi-Fi URL</span>
           </button>
         </div>
 
-        <!-- Option 2: Worldwide Any Device Access -->
-        <div style="background:rgba(10,15,26,0.85); border:1px solid var(--accent-border); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
-          <div style="font-weight:700; color:#34d399; font-size:1rem; margin-bottom:0.25rem;">🌍 Worldwide Public Link</div>
-          <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:0.85rem;">Works anywhere (4G/5G, cellular, any network)</div>
+        <!-- Option 2: Mobile Host / Direct Instructions -->
+        <div class="connect-card secondary-card">
+          <div class="connect-badge secondary">📱 Mobile & Tablet Features</div>
+          <div class="connect-card-title">Full Mobile Experience</div>
+          <div class="connect-card-hint">Optimized for iPhone, iPad, Android phones & tablets</div>
           
-          <div style="background:#fff; padding:8px; border-radius:10px; margin-bottom:0.85rem; box-shadow:0 0 20px rgba(52,211,153,0.3); line-height:0;">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://itchy-rivers-switch.loca.lt" alt="Worldwide Public QR Code" width="160" height="160" style="display:block; border-radius:4px;">
+          <div class="mobile-features-list">
+            <div class="mobile-feature-item">
+              <span class="feat-icon">⚡</span>
+              <div>
+                <strong>Touch Navigation:</strong>
+                <span>One-thumb bottom dock & drawer menu</span>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <span class="feat-icon">🧪</span>
+              <div>
+                <strong>Interactive Sandboxes:</strong>
+                <span>Test RBAC roles, Polynomials & AI Chatbot on touch</span>
+              </div>
+            </div>
+            <div class="mobile-feature-item">
+              <span class="feat-icon">🎨</span>
+              <div>
+                <strong>Adaptive Dark Mode:</strong>
+                <span>4 Cyber neon themes with instant live switching</span>
+              </div>
+            </div>
           </div>
 
-          <div style="font-family:var(--font-mono); font-size:0.82rem; background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; color:#fff; word-break:break-all; margin-bottom:0.75rem;">
-            https://itchy-rivers-switch.loca.lt
-          </div>
-
-          <button class="btn btn-primary" data-copy="https://itchy-rivers-switch.loca.lt" style="width:100%; padding:0.55rem 1rem; font-size:0.82rem;">
-            <span>Copy Public Link</span>
+          <button class="btn btn-primary" data-copy="http://172.21.227.75:3000/" id="btn-share-mobile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>Share Portfolio Link</span>
           </button>
         </div>
       </div>
 
-      <div style="margin-top:1.25rem; padding:0.85rem 1rem; background:rgba(255,255,255,0.03); border:1px dashed var(--border-light); border-radius:var(--radius-sm); font-size:0.8rem; color:var(--text-secondary); text-align:center;">
-        💡 <strong>Quick Tip:</strong> Open your smartphone's Camera app and point it at either QR code above to launch the portfolio instantly without typing!
+      <div class="connect-modal-tip">
+        💡 <strong>Quick Tip:</strong> Open your iPhone or Android Camera app and point it at the QR code above to open this portfolio instantly on your mobile device!
       </div>
     </div>
   </div>
@@ -1667,6 +1729,53 @@
       </div>
     </div>
   </div>
+
+  <!-- ==================== FLOATING MOBILE DOCK (1-THUMB NAVIGATION) ==================== -->
+  <nav class="mobile-dock" id="mobile-dock" aria-label="Mobile Quick Navigation">
+    <a href="#hero" class="dock-item" aria-label="Go to Top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Top</span>
+    </a>
+
+    <a href="#projects" class="dock-item" aria-label="View Projects">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+        <polyline points="2 17 12 22 22 17"></polyline>
+        <polyline points="2 12 12 17 22 12"></polyline>
+      </svg>
+      <span>Projects</span>
+    </a>
+
+    <button class="dock-item dock-item-qr" data-modal-open="modal-mobile-connect" aria-label="Open Mobile QR & Link">
+      <div class="dock-qr-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+      </div>
+      <span>📱 QR</span>
+    </button>
+
+    <a href="#skills" class="dock-item" aria-label="View Skills">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+      <span>Skills</span>
+    </a>
+
+    <a href="#contact" class="dock-item" aria-label="Contact Manoj">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span>Contact</span>
+    </a>
+  </nav>
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
